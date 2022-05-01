@@ -24,3 +24,21 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
 };
+
+//update a user
+const UpdateSingleUser = async (req, res) => {
+try{
+  User.findOneAndUpdate( 
+    const updatedUser =
+    { _id: req.params.userId},
+    {$set: req.body},
+    {runValidators: true, new: true});
+    res.json(updatedUser)
+}
+}
+
+ const deleteUser = async (req, res) => {
+   try{
+     const dele
+   }
+ }   
