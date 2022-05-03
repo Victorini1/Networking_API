@@ -1,6 +1,7 @@
 const User = require('../models/User');
 
 module.exports = {
+
   getUsers(req, res) {
     User.find()
       .then((users) => res.json(users))
@@ -17,6 +18,7 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
+  
   // create a new user
   createUser(req, res) {
     User.create(req.body)

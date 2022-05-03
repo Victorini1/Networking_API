@@ -1,5 +1,5 @@
 const connection = require('../config/connection');
-const { Post, User } = require('../models');
+const { Thought, User } = require('../models');
 const getRandomName = require('./data');
 
 console.log(getRandomName());
@@ -7,7 +7,7 @@ connection.on('error', (err) => err);
 
 connection.once('open', async () => {
   console.log('connected');
-  await Post.deleteMany({});
+  await Thought.deleteMany({});
   await User.deleteMany({});
 
   const users = [];
@@ -20,7 +20,6 @@ connection.once('open', async () => {
     users.push({
       first,
       last,
-      age: Math.floor(Math.random() * (99 - 18 + 1) + 18),
     });
   }
 

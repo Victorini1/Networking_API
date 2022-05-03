@@ -11,7 +11,7 @@ module.exports = {
   },
 
   getSingleThought(req, res) {
-    Thought.findOne({ _id: req.params.thoughtId })
+    Thought.findOne({ _id: req.params.thoughtsId })
       .populate('reactions')
       .select('-__v')
       .then((thought) =>
@@ -35,8 +35,8 @@ module.exports = {
             !user
               ? res
                   .status(404)
-                  .json({ message: 'No user found with that ID :(' })
-              : res.json(user)
+                  .json({ message: 'No user found with that ID' })
+              : res.json(thought)
           )
           .catch((err) => res.status(500).json(err));
       })
@@ -46,7 +46,7 @@ module.exports = {
   // update a thought
   updateThought(req, res) {
     Thought.findOneAndUpdate(
-      { _id: req.params.thoughtId },
+      { _id: req.params.thoughtsId },
       { $set: req.body },
       { runValidators: true, new: true }
     )
@@ -63,7 +63,7 @@ module.exports = {
 
   // delete a thought
   deleteThought(req, res) {
-    Thought.findOneAndDelete({ _id: req.params.thoughtId })
+    Thought.findOneAndDelete({ _id: req.params.thoughtsId })
       .then((thought) =>
         !thought
           ? res
@@ -77,7 +77,7 @@ module.exports = {
   // add reaction to thought
   addReaction(req, res) {
     Thought.findOneAndUpdate(
-      { _id: req.params.thoughtId },
+      { _id: req.params.thoughtsId },
       { $addToSet: { reactions: req.body } },
       { runValidators: true, new: true }
     )
@@ -85,7 +85,7 @@ module.exports = {
         !thought
           ? res
               .status(404)
-              .json({ message: 'No thought found with that ID :(' })
+              .json({ message: 'No thought found with that ID' })
           : res.json(thought)
       )
       .catch((err) => res.status(500).json(err));
@@ -94,7 +94,7 @@ module.exports = {
   // delete reaction from thought
   deleteReaction(req, res) {
     Thought.findOneAndUpdate(
-      { _id: req.params.thoughtId },
+      { _id: req.params.thoughtsId },
       { $pull: { reactions: {reactionId: req.params.reactionId } } },
       { new: true }
     )
