@@ -12,6 +12,19 @@
   ## Installation Instructions
   Use of the express and Mongo needed to fully utilize this application
 
+  ## Demonstration
+  Because this is not deployed some videos are included:
+  
+  This demonstrates the use of the user Routes:
+
+  https://user-images.githubusercontent.com/99378879/166451231-cab56ea9-6be4-4c8c-90af-20976a9399ee.mp4
+
+
+  The thought Routes is slightly bigger, but can be found at this link:
+  
+  https://drive.google.com/file/d/1ZCZSTuU1uc5PSXwhB33I0T4d0qF5O9Ej/view?usp=sharing
+
+
   ## Questions
   For questions, contact me via <a href="mailto:victor.m.kennedy@gmail.com">email</a>.
   Find me on <a href="https://github.com/Victorini1">GitHub</a>
